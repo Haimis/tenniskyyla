@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+    <h1>Tenniskyylä</h1>
+    {% if free %}
+    <div>
+        {% for i in free.keys() %}
+            <h2>{{ i }} </h2>
+            <ul>
+            {% for j in free[i].keys() %}
+                <li>{{ j }} </li>
+                <ul>
+                {% for k in free[i][j].keys() %}
+                    <li>
+                        {{ k }}
+                        <a href={{ free[i][j][k] }}>Varaa</a>
+                    </li>
+                {% endfor %}
+                </ul>
+            {% endfor %}
+            </ul>
+        {% endfor %}
+    </div>
+    {% else %}
+        <p>Hello, World!</p> 
+    {% endif %}
+</body>
+
+</html>
